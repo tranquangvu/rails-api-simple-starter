@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
@@ -21,7 +21,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
-  gem 'dotenv-rails'
   gem 'fuubar'
   gem 'faker'
 end
