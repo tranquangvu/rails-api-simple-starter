@@ -16,6 +16,9 @@ module ExceptionFilter
 
     rescue_from ActionController::ParameterMissing,
                 with: ->(e) { render_api_error(APIError::ParamMissingError.new(e.param)) }
+
+    rescue_from APIError::StandardError,
+                with: ->(e) { render_api_error(e) }
   end
 
   def render_api_error(error)
