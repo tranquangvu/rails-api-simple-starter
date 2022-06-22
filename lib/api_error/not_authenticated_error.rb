@@ -4,7 +4,7 @@ module APIError
       super(
         status: '401',
         title: 'Unauthorized',
-        detail: message || 'You are not authenticated to perform this request'
+        detail: message || 'You are not authenticated'
       )
     end
   end

@@ -5,8 +5,11 @@ module API
 
       attr_reader :current_user
 
+      private
+
       def authenticate_user!
-        @current_user = Auth::RequestAuthenticateUserService.call(request.headers)
+        scheme, token = request.headers['Authorization']&.split(' ')
+        @current_user = Auth::ValidateUserFromTokenService.call(scheme, token)
       end
     end
   end

@@ -4,7 +4,7 @@ module APIError
 
     def initialize(title: nil, detail: nil, status: nil, source: nil) # rubocop:disable Lint/MissingSuper
       @title = title || 'Something went wrong'
-      @detail = detail || 'We encountered unexpected error, but our developers had been already notified about it'
+      @detail = detail || "We're sorry, but something went wrong"
       @status = status || '500'
       @source = source || {}
     end

@@ -1,11 +1,11 @@
 module API
   module V1
     module Users
-      class SessionsController < BaseController
+      class RegistrationsController < BaseController
         skip_before_action :authenticate_user!, only: :create
 
         def create
-          user = Auth::LoginUserService.call(user_params[:email], user_params[:password])
+          user = Auth::RegisterUserService.call(user_params)
           render_resource(user, serializer: AuthUserSerializer)
         end
 

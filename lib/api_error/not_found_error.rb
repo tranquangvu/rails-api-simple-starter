@@ -4,7 +4,7 @@ module APIError
       super(
         status: '404',
         title: 'Not Found',
-        detail: message || 'The resource can not be found',
+        detail: message || 'The finding resource can not be found'
       )
     end
   end

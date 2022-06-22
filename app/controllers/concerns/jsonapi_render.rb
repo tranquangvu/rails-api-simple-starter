@@ -5,7 +5,7 @@ module JSONAPIRender
     include Pagination
   end
 
-  def render_resources(resources, options = {})
+  def render_resource_collection(resources, options = {})
     serializer_class = options[:each_serializer] || "#{resources.ancestors.first.name}Serializer".constantize
     serializer_options = options.slice(*accepted_jsonapi_serializer_options).merge(is_collection: true)
     serializer_options[:meta] = (serializer_options[:meta] || {}).merge(paginate_meta(options[:pagy])) if options[:pagy]

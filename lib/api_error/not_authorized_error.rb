@@ -4,7 +4,7 @@ module APIError
       super(
         status: '403',
         title: 'Forbidden',
-        detail: message || 'You are not authorized to perform this request'
+        detail: message || 'Permission Denied'
       )
     end
   end

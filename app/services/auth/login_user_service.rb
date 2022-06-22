@@ -1,5 +1,5 @@
 module Auth
-  class AuthenticateUserService < ApplicationService
+  class LoginUserService < ApplicationService
     attr_reader :email, :password
 
     def initialize(email, password)
@@ -9,9 +9,7 @@ module Auth
 
     def call
       user = User.find_by(email: email)
-      raise APIError::NotAuthenticatedError.new('Invalid email or password') if !user.present? || !user.authenticate(password)
-
-      user
+      user&.authenticate(password) || raise(APIError::NotAuthenticatedError, 'Invalid email or password')
     end
   end
 end

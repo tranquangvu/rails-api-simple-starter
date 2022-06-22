@@ -4,7 +4,7 @@ module APIError
       super(
         status: '500',
         title: 'Internal Server Error',
-        detail: message || 'We encountered unexpected error, but our developers had been already notified about it'
+        detail: message || "We're sorry, but something went wrong"
       )
     end
   end

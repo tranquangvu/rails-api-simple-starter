@@ -1,16 +1,15 @@
 module Auth
-  class RequestAuthenticateUserService < ApplicationService
+  class ValidateUserFromTokenService < ApplicationService
     attr_reader :scheme, :token
 
-    def initialize(headers)
-      @scheme, @token = headers['Authorization']&.split(' ')
+    def initialize(scheme, token)
+      @scheme = scheme
+      @token = token
     end
 
     def call
       user = User.find_by(id: decoded_token&.dig('data', 'user_id'))
-      raise APIError::NotAuthenticatedError if scheme != 'Bearer' || !user.present?
-
-      user
+      (scheme == 'Bearer' && user) || raise(APIError::NotAuthenticatedError)
     end
 
     private
