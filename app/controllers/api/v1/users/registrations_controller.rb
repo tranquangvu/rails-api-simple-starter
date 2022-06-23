@@ -6,7 +6,7 @@ module API
 
         def create
           user = Auth::RegisterUserService.call(user_params)
-          render_resource(user, serializer: AuthUserSerializer)
+          render_resource(user, serializer: AuthUserSerializer, status: :created)
         end
 
         private

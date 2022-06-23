@@ -23,7 +23,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
   gem 'rspec_junit_formatter'
   gem 'factory_bot_rails'
-  gem 'fuubar'
   gem 'faker'
 end
 

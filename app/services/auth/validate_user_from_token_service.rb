@@ -8,7 +8,7 @@ module Auth
     end
 
     def call
-      user = User.find_by(id: decoded_token&.dig('data', 'user_id'))
+      user = User.find_by(id: decoded_token&.dig(:data, :user_id))
       (scheme == 'Bearer' && user) || raise(APIError::NotAuthenticatedError)
     end
 

@@ -11,12 +11,13 @@
 class User < ApplicationRecord
   has_secure_password
 
-  # constants
-  EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i.freeze
-
   # validations
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
-                    format: { with: EMAIL_REGEX }
+                    format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { minimum: 8 }
+
+  def auth_token
+    JsonWebToken.encode(user_id: id)
+  end
 end

@@ -101,9 +101,6 @@ GEM
       railties (>= 5.0.0)
     faker (2.21.0)
       i18n (>= 1.8.11, < 2)
-    fuubar (2.5.1)
-      rspec-core (~> 3.0)
-      ruby-progressbar (~> 1.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -265,7 +262,6 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
-  fuubar
   jsonapi-serializer
   jwt
   letter_opener
